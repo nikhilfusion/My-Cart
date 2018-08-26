@@ -1,0 +1,37 @@
+<form action="/shop/filter" method="get">
+    <div class="form-group">
+        <div class="input-group input-group-sm">
+            <label class="input-group-addon" for="min">Min Price</label>
+            <input type="number" min="0" id="min" name="min" class="form-control" aria-describedby="sizing-addon3">
+        </div>
+        <br>
+        <div class="input-group input-group-sm">
+            <label class="input-group-addon" for="max">Max Price</label>
+            <input type="number" min="0" id="max" name="max" class="form-control" aria-describedby="sizing-addon3">
+        </div>
+    </div>
+    <div id="form-platforms" class="form-group">
+        <div class="form-control">
+            <input type="checkbox" id="discount" name="discount">
+            <label for="discount">Discount</label>
+        </div>
+    </div>
+    <div id="form-platforms" class="form-group">
+        {{#each platforms}}
+        <div class="form-control">
+            <input type="checkbox" id="{{this}}" name="platforms" value="{{this}}">
+            <label for="{{this}}">{{this}}</label>
+        </div>
+        {{/each}}
+    </div>
+    <div id="form-genre" class="form-group">
+        {{#each genre}}
+        <div class="form-control">
+            <input type="checkbox" id="{{this}}" name="genre" value="{{this}}">
+            <label for="{{this}}">{{this}}</label>
+        </div>
+        {{/each}}
+    </div>
+    {{!--<input type="hidden" name="_csrf" value="{{csrfToken}}">--}}
+    <button type="submit" class="btn btn-primary">Filter</button>
+</form>
